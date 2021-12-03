@@ -1,7 +1,7 @@
 function setClock() { 
     const hourHand = document.querySelector('.hours'); 
-    const minHand = document.querySelector('.minutes'); 
-    const secondHand = document.querySelector('.seconds'); 
+    const minutesHand = document.querySelector('.minutes'); 
+    const secondsHand = document.querySelector('.seconds'); 
     const now = new Date(); 
  
     // Offset the initial 90 degrees 
@@ -10,11 +10,11 @@ function setClock() {
     const secondsDegrees = getSecondsDegrees(now); 
  
     hourHand.style.transform = `rotate(${hoursDegrees}deg)`; 
-    minHand.style.transform = `rotate(${minDegrees}deg)`; 
-    secondHand.style.transform = `rotate(${secondsDegrees}deg)`; 
+    minutesHand.style.transform = `rotate(${minDegrees}deg)`; 
+    secondsHand.style.transform = `rotate(${secondsDegrees}deg)`; 
  
     function getHoursDegrees(date) { 
-      return (((date.getHours() / 12) * 360) + 90 + (getMinDegrees(date) / 12)); 
+      return (((date.getHours() * 30) * 360) + 90 + (getMinDegrees(date) / 12)); 
     } 
  
     function getMinDegrees(date) { 
@@ -26,4 +26,4 @@ function setClock() {
     } 
   } 
  
-  setInterval(setClock, 1000);
+  setInterval(setClock(), 1000);
